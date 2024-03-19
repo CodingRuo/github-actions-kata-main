@@ -1,16 +1,21 @@
 name: task-1-kata
 run-name: ${{ github.actor }} is learning GitHub Actions
-on: [push]
+on: 
+  pull_request:
+    paths:
+      - '**.ts'
 jobs:
   LearnGitHubActions:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: ls
-      - run: echo "Branch = ${{ github.ref_name }}"
-      - run: echo "Commit = ${{ github.sha }}"
       - uses: actions/setup-node@v4
         with:
           node-version: 21
-      - run: cd desktop-app && npm ci && npm test
-      
+      - run: |
+          ls
+          echo "Branch = ${{ github.ref_name }}"
+          echo "Commit = ${{ github.sha }}"
+          cd desktop-app
+          npm ci
+          npm test
