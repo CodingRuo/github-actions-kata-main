@@ -1,0 +1,9 @@
+name: task-1-kata
+run-name: ${{ github.actor }} is learning GitHub Actions
+on: [push]
+jobs:
+  LearnGitHubActions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: ls
