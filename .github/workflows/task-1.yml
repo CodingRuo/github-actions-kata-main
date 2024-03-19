@@ -19,3 +19,4 @@ jobs:
           cd desktop-app
           npm ci
           npm test
+          npm run e2e
