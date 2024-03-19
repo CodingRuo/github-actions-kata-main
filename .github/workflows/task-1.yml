@@ -7,3 +7,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: ls
+      - run: echo "Branch = $GITHUB_REF_NAME"
+      - run: echo "Commit = $GITHUB_SHA"
